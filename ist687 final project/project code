@@ -1,0 +1,391 @@
+```{r}
+install.packages("rvest")
+install.packages("dplyr")
+install.packages("tidyverse")
+library("rvest")
+library("dplyr")
+library("tidyverse")
+
+# Define the URL
+# Read the HTML content from the URL
+url <- "https://afdc.energy.gov/vehicle-registration?year=2021"
+webpage <- read_html(url)
+
+# Extract the table
+table_html <- webpage %>%
+  html_nodes("table") %>%
+  .[[1]]
+
+# Parse the table into a dataframe
+table_df <- table_html %>%
+  html_table(fill = TRUE)
+
+table_df <- table_df[-1, ]
+#head(table_data)
+#colnames(table_data)
+#glimpse(table_data)
+#colnames(table_data)
+colnames(table_df)[1] <- "State"
+colnames(table_df)
+head(table_df)
+colnames(table_df)[2] <- "Electric"
+colnames(table_df)[3] <- "Plugin"
+colnames(table_df)[4] <- "Hybrid"
+colnames(table_df)[5] <- "Biodeisel"
+colnames(table_df)[6] <- "Ethanol/Flex"
+colnames(table_df)[7] <- "Compressed Natural Gas"
+colnames(table_df)[8] <- "Propane"
+colnames(table_df)[9] <- "Hydgroen"
+colnames(table_df)[10] <- "Methanol"
+colnames(table_df)[11] <- "Gasoline"
+colnames(table_df)[12] <- "Diesel"
+
+# Clean the Electric column (remove commas) and convert it to numeric
+table_df$Electric <- as.numeric(gsub(",", "", table_df$Electric))
+
+# Sort the dataframe by the Electric column in descending order
+table_sorted_df <- table_df %>%
+  arrange(desc(Electric))
+
+# Display the sorted dataframe
+print(table_sorted_df)
+```{r}
+install.packages("rvest")
+install.packages("dplyr")
+install.packages("tidyverse")
+library("rvest")
+library("dplyr")
+library("tidyverse")
+
+url_2 <- "https://afdc.energy.gov/vehicle-registration?year=2020"
+webpage_2 <- read_html(url_2)
+
+# Extract the table
+table_html_2 <- webpage_2 %>%
+  html_nodes("table") %>%
+  .[[1]]
+
+# Parse the table into a dataframe
+table_df_2 <- table_html_2 %>%
+  html_table(fill = TRUE)
+
+table_df_2 <- table_df_2[-1, ]
+
+colnames(table_df_2)[1] <- "State"
+colnames(table_df_2)
+head(table_df_2)
+colnames(table_df_2)[2] <- "Electric"
+colnames(table_df_2)[3] <- "Plugin"
+colnames(table_df_2)[4] <- "Hybrid"
+colnames(table_df_2)[5] <- "Biodeisel"
+colnames(table_df_2)[6] <- "Ethanol/Flex"
+colnames(table_df_2)[7] <- "Compressed Natural Gas"
+colnames(table_df_2)[8] <- "Propane"
+colnames(table_df_2)[9] <- "Hydgroen"
+colnames(table_df_2)[10] <- "Methanol"
+colnames(table_df_2)[11] <- "Gasoline"
+colnames(table_df_2)[12] <- "Diesel"
+
+# Clean the Electric column (remove commas) and convert it to numeric
+table_df_2$Electric <- as.numeric(gsub(",", "", table_df_2$Electric))
+
+# Sort the dataframe by the Electric column in descending order
+table_sorted_df_2 <- table_df_2 %>%
+  arrange(desc(Electric))
+
+# Display the sorted dataframe
+print(table_sorted_df_2)
+install.packages("rvest")
+install.packages("dplyr")
+install.packages("tidyverse")
+library("rvest")
+library("dplyr")
+library("tidyverse")
+
+url_3 <- "https://afdc.energy.gov/vehicle-registration?year=2019"
+webpage_3 <- read_html(url_3)
+
+# Extract the table
+table_html_3 <- webpage_3 %>%
+  html_nodes("table") %>%
+  .[[1]]
+
+# Parse the table into a dataframe
+table_df_3 <- table_html_3 %>%
+  html_table(fill = TRUE)
+
+table_df_3 <- table_df_3[-1, ]
+
+colnames(table_df_3)[1] <- "State"
+colnames(table_df_3)
+head(table_df_3)
+colnames(table_df_3)[2] <- "Electric"
+colnames(table_df_3)[3] <- "Plugin"
+colnames(table_df_3)[4] <- "Hybrid"
+colnames(table_df_3)[5] <- "Biodeisel"
+colnames(table_df_3)[6] <- "Ethanol/Flex"
+colnames(table_df_3)[7] <- "Compressed Natural Gas"
+colnames(table_df_3)[8] <- "Propane"
+colnames(table_df_3)[9] <- "Hydgroen"
+colnames(table_df_3)[10] <- "Methanol"
+colnames(table_df_3)[11] <- "Gasoline"
+colnames(table_df_3)[12] <- "Diesel"
+
+# Clean the Electric column (remove commas) and convert it to numeric
+table_df_3$Electric <- as.numeric(gsub(",", "", table_df_3$Electric))
+
+# Sort the dataframe by the Electric column in descending order
+table_sorted_df_3 <- table_df_3 %>%
+  arrange(desc(Electric))
+
+# Display the sorted dataframe
+print(table_sorted_df_3)
+install.packages("rvest")
+install.packages("dplyr")
+install.packages("tidyverse")
+library("rvest")
+library("dplyr")
+library("tidyverse")
+
+url_4 <- "https://afdc.energy.gov/vehicle-registration?year=2018"
+webpage_4 <- read_html(url_4)
+
+# Extract the table
+table_html_4 <- webpage_4 %>%
+  html_nodes("table") %>%
+  .[[1]]
+
+# Parse the table into a dataframe
+table_df_4 <- table_html_4 %>%
+  html_table(fill = TRUE)
+
+table_df_4 <- table_df_4[-1, ]
+
+colnames(table_df_4)[1] <- "State"
+colnames(table_df_4)
+head(table_df_4)
+colnames(table_df_4)[2] <- "Electric"
+colnames(table_df_4)[3] <- "Plugin"
+colnames(table_df_4)[4] <- "Hybrid"
+colnames(table_df_4)[5] <- "Biodeisel"
+colnames(table_df_4)[6] <- "Ethanol/Flex"
+colnames(table_df_4)[7] <- "Compressed Natural Gas"
+colnames(table_df_4)[8] <- "Propane"
+colnames(table_df_4)[9] <- "Hydgroen"
+colnames(table_df_4)[10] <- "Methanol"
+colnames(table_df_4)[11] <- "Gasoline"
+colnames(table_df_4)[12] <- "Diesel"
+
+# Clean the Electric column (remove commas) and convert it to numeric
+table_df_4$Electric <- as.numeric(gsub(",", "", table_df_4$Electric))
+
+# Sort the dataframe by the Electric column in descending order
+table_sorted_df_4 <- table_df_4 %>%
+  arrange(desc(Electric))
+
+# Display the sorted dataframe
+print(table_sorted_df_4)
+
+EV_Counts <- data.frame(
+  Year = c(2018, 2019, 2020, 2021),
+  Florida = c(27400, 40300, 58200, 95600),
+  Texas = c(24500, 38400, 52200, 80900),
+  Washington = c(30200, 40400, 50500, 66800)
+)
+
+# Print the dataframe
+print(EV_Counts)
+# Load the ggplot2 library
+install.packages("tidyverse")
+#install.packages("ggplot2")
+library("tidyverse")
+#library("ggplot2")
+
+# Line chart for Florida
+florida_plot <- ggplot(EV_Counts, aes(x = Year, y = Florida)) +
+  geom_line(color = "blue") +
+  geom_point() +
+  labs(title = "Florida EV Registrations", x = "Year", y = "EV Registrations") +
+  theme_minimal()
+
+# Line chart for Texas
+texas_plot <- ggplot(EV_Counts, aes(x = Year, y = Texas)) +
+  geom_line(color = "red") +
+  geom_point() +
+  labs(title = "Texas EV Registrations", x = "Year", y = "EV Registrations") +
+  theme_minimal()
+
+# Line chart for Washington
+washington_plot <- ggplot(EV_Counts, aes(x = Year, y = Washington)) +
+  geom_line(color = "green") +
+  geom_point() +
+  labs(title = "Washington EV Registrations", x = "Year", y = "EV Registrations") +
+  theme_minimal()
+
+florida_plot
+texas_plot
+Washington_plot
+
+library("tidyr")
+EV_long <- gather(EV_Counts, key = "State", value = "EV_Regs", -Year)
+
+# Combined line chart for all states
+combined_plot <- ggplot(EV_long, aes(x = Year, y = EV_Regs, color = State)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "EV Registrations by State", x = "Year", y = "EV Registrations") +
+  theme_minimal()
+
+# Print combined line chart
+print(combined_plot)
+
+```{r}
+print(paste("Florida Totals:", sum(EV_Counts$Florida)))
+print(paste("Texas Totals:", sum(EV_Counts$Texas)))
+print(paste("Washington:", sum(EV_Counts$Washington)))
+
+## Group B final project: electric rates portion
+
+library(tidyverse)
+#Questions: 
+#1. How does the rates compare from state to state?
+#2. Does the service type affect the utility rate?
+#3. How does the electric rates vary within a state (by utility company)? 
+str(rates)
+rates[is.na(rates)]
+
+#Dataframes and N/A check
+rates11 <- iouzipcodes2011
+rates11$comm_rate[is.na(rates11$comm_rate)]
+rates13 <- iouzipcodes2013
+rates13$comm_rate[is.na(rates13$comm_rate)]
+rates14 <- iouzipcodes2014
+rates14$comm_rate[is.na(rates14$comm_rate)]
+rates15 <- iouzipcodes2015
+rates15[is.na(rates15)]
+rates16 <- iouzipcodes2016
+rates16[is.na(rates16)]
+rates17 <- iouzipcodes2017
+rates17[is.na(rates17)]
+rates18 <- iouzipcodes2018
+rates18[is.na(rates18)]
+rates19 <- iou_zipcodes_2019
+rates19[is.na(rates19)]
+rates20 <- iou_zipcodes_2020
+rates20[is.na(rates20)]
+rates21 <- iou_zipcodes_2021
+rates21$comm_rate[is.na(rates21$comm_rate)]
+str(rates20)
+str(rates19)
+View(rates20)
+area <- read_csv("https://raw.githubusercontent.com/jakevdp/data-USstates/master/state-areas.csv")
+View(area)
+str(area)
+
+#National Average Trend
+years <- c("2013","2014","2015","2016","2017","2018","2019","2020","2021")
+aveRates <- c(mean(rates13$comm_rate),mean(rates14$comm_rate),mean(rates15$comm_rate), mean(rates16$comm_rate), mean(rates17$comm_rate), mean(rates18$comm_rate), mean(rates19$comm_rate), mean(rates20$comm_rate),mean(rates21$comm_rate))
+natRates <- data.frame(years,aveRates)
+natRates
+
+library(ggplot2)
+ggplot(natRates, aes(x=natRates$years, y=natRates$aveRates)) + geom_point() + ggtitle("Years vs National Average")
+
+#Function to clean up Rates DFs
+
+CleanRatesDF <- function(inputDF) {
+  #load necessary packages for function to run
+  library(tidyverse)
+  #remove unnecessary columns
+  inputDF <- inputDF %>% select(-c(ind_rate, res_rate))
+  #retain only the rows for Florida, Washington, and Texas states
+  inputDF <- filter(inputDF, state %in% c("FL","WA","TX"))
+  return(inputDF)
+}
+rates21 <-CleanRatesDF(rates21)
+View(rates21)
+#Dataframe with only the target states
+CleanTargetRates <- function(inputDF) {
+  #load necessary packages for function to run
+  library(tidyverse)
+  #retain only the rows for Florida, Washington, and Texas states
+  inputDF <- filter(inputDF, state %in% c("FL","WA","TX"))
+  return(inputDF)
+}
+targetRates <- CleanTargetRates(rates21)
+#df retaining averages
+View(dfSimple)
+state <- c("alaska","alabama","arkansas","arizona","california","colorado","connecticut","district of columbia","delaware","florida","georgia","Hawaii","iowa","idaho","illinois","indiana","kansas","kentucky","louisiana","massachusetts","maryland","maine","michigan","minnesota","missouri","mississippi","montana","north carolina","north dakota","new hampshire","new jersey","new mexico","nevada","new york","ohio","oklahoma","oregon","pennsylvania","rhode island","south carolina","south dakota","tennessee","texas","utah","virginia","vermont","washington","wisconsin","west virginia","wyoming","nebraska")
+AveR <- c(0,0,0,0,0,0,0,0,0,0.0955,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0959,0,0,0,0.0747,0,0,0,0)
+targetStates <- data.frame(state,AveR)
+
+#2021 Map with rates
+library(dplyr)
+dfSimple <- rates21 %>% group_by(state) %>% summarise(AveRate = mean(comm_rate))
+head(dfSimple,10)
+MainStates <- map_data("state")
+
+dfSimple$state <- tolower(dfSimple$state)
+usDataWithGeom <- merge(MainStates, targetStates, by.x="region",by.y="state")
+library(ggplot2)  
+library(maps)    
+library(dplyr)
+p <- ggplot()
+p <- p + geom_polygon( data=usDataWithGeom, 
+          aes(x=long, y=lat, group=group, fill = AveR), 
+          color="black", size = 0.2) 
+p
+usDataWithGeom
+
+#Bar graph
+library(ggplot2)
+# Basic barplot
+p<-ggplot(data=dfSimple, aes(x=state, y=AveRate)) +
+  geom_bar(stat="identity",fill="steelblue")
+p
+
+#Aggregated state utilities and their average rates
+
+#Texas
+CleanRatesTx <- function(inputDF) {
+  #load necessary packages for function to run
+  library(tidyverse)
+  #retain only the rows for Florida, Washington, and Texas states
+  inputDF <- filter(inputDF, state %in% c("TX"))
+  return(inputDF)
+}
+tx <- CleanRatesTx(rates21)
+txUtilRates <- tx %>% group_by(utility_name) %>% summarise(AveRate = mean(comm_rate))
+#Florida
+CleanRatesFl <- function(inputDF) {
+  #load necessary packages for function to run
+  library(tidyverse)
+  #retain only the rows for Florida, Washington, and Texas states
+  inputDF <- filter(inputDF, state %in% c("FL"))
+  return(inputDF)
+}
+fl <- CleanRatesFl(rates21)
+flUtilRates <- fl %>% group_by(utility_name) %>% summarise(AveRate = mean(comm_rate))
+#Washington
+CleanRatesWa <- function(inputDF) {
+  #load necessary packages for function to run
+  library(tidyverse)
+  #retain only the rows for Florida, Washington, and Texas states
+  inputDF <- filter(inputDF, state %in% c("WA"))
+  return(inputDF)
+}
+wa <- CleanRatesWa(rates21)
+waUtilRates <- wa %>% group_by(utility_name) %>% summarise(AveRate = mean(comm_rate))
+
+#Bar Graphs from utility averages
+txBar<-ggplot(data=txUtilRates, aes(x=utility_name, y=AveRate)) +
+  geom_bar(stat="identity",fill="purple")
+txBar
+
+flBar<-ggplot(data=flUtilRates, aes(x=utility_name, y=AveRate)) +
+  geom_bar(stat="identity",fill="red")
+flBar
+
+waBar<-ggplot(data=waUtilRates, aes(x=utility_name, y=AveRate)) +
+  geom_bar(stat="identity",fill="orange")
+waBar

@@ -1,0 +1,1 @@
+#The following file contains code from a NLP group project where we used used a large collection of amazon reviews to create a sentiment anaylsis tool. The implementation of lexicons and various word features can also be found.
